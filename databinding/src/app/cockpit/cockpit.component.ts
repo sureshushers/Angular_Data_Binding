@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -6,14 +6,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./cockpit.component.css'],
 })
 export class CockpitComponent {
+  /***
+   * Section 3: Passing the data from the cockpit to parent which is App Component
+   * 1. Set a property that could emit an custom event
+   * 2. Mark that property using @Output() decorator
+   * 3. Emit the event in the button click method
+   */
+
+  @Output() emitServerCreated = new EventEmitter<{
+    name: string;
+    content: string;
+  }>();
+
+  @Output() emitBluePrintCreated = new EventEmitter<{
+    name: string;
+    content: string;
+  }>();
+
   newServerName = '';
   newServerContent = '';
-  
+
   onAddServer() {
-    alert('Server is clicked');
+    this.emitServerCreated.emit({
+      name: this.newServerName,
+      content: this.newServerContent,
+    });
   }
 
   onAddBluePrint() {
-    alert('Blueprint is clicked');
+    this.emitBluePrintCreated.emit({
+      name: this.newServerName,
+      content: this.newServerContent,
+    });
   }
 }
