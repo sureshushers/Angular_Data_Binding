@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ServersComponent {
   //To make the below element visible in other component, make it visible using Input() decorator.
+  //Important: The INPUT() decorator is used to get the data from the parent component.
   @Input() element!: { type: string; name: string; content: string };
 
   constructor() {}

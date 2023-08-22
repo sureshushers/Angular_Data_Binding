@@ -1,14 +1,26 @@
 <div class="container">
-  <p>Cockpit component</p>
-  <div class="card" >
-    <div class="card-header" *ngIf elementServer.type==="server">Server</div>
-    <div class="card-header" *ngIf elementServer.type==="blueprint">Server</div>
+  <!-- <p>Cockpit component</p> -->
+  <div class="card">
+    <div
+      class="card-header"
+      style="color:red"
+      *ngIf="element.type === 'server'"
+    >
+      Server
+    </div>
+    <div
+      class="card-header"
+      style="color:green"
+      *ngIf="element.type === 'blueprint'"
+    >
+      BluePrint
+    </div>
     <div class="card-body">
-      <h5 class="card-title">{{element.name}}</h5>
-      <p class="card-text">{{element.content}}</p>
+      <h5 class="card-title">{{ element.name }}</h5>
+      <p class="card-text">{{ element.content }}</p>
     </div>
   </div>
-<!-- 
+  <!-- 
   <div class="card" >
     <div class="card-header" *ngIf elementServer.type==="Blueprint">Blueprint</div>
     <div class="card-body">
@@ -18,10 +30,11 @@
   </div>
 </div> -->
 
-<!-- <div class="container">
+  <!-- <div class="container">
   <div class="row">
     <div class="col xs-12">
       <p>Add new servers or blueprints</p>
     </div>
   </div>
 </div> -->
+</div>
