@@ -1,4 +1,11 @@
 <div class="container">
   <div class="row"><app-cockpit></app-cockpit></div>
-  <div class="row"><app-servers></app-servers></div>
+  <div class="row">
+    <!-- <app-servers *ngFor="let server of serverElements"> -->
+    <!-- Bind the server element in the servers component and pass the server (the loop variable) to the element using property binding -->
+    <app-servers
+      *ngFor="let serverElement of serverElements"
+      [element]="serverElement"
+    ></app-servers>
+  </div>
 </div>
